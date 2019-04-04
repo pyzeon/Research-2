@@ -1,0 +1,13 @@
+因子名称,因子描述,排序方向,数据类型
+EPS_FY0_R1M,一致预期 EPS_FY0 过去20天的变化率,降序,double
+EPS_FY0_R3M,一致预期 EPS_FY0 过去60天的变化率,降序,double
+EPS_Fwd12M_R1M,一致预期 EPS_未来12个月预测值过去20天的变化率,降序,double
+EPS_Fwd12M_R3M,一致预期 EPS_未来12个月预测值过去60天的变化率,降序,double
+ROE_FY0_R1M,一致预期 ROE_FY0 过去20天的变化率,降序,double
+ROE_FY0_R3M,一致预期 ROE_FY0 过去60天的变化率,降序,double
+ROE_Fwd12M_R1M,一致预期 ROE_未来12个月预测值过去20天的变化率,降序,double
+ROE_Fwd12M_R3M,一致预期 ROE_未来12个月预测值过去60天的变化率,降序,double
+Rating_R1M,分析师综合评级1个月的变化率,升序,double
+Rating_R3M,分析师综合评级3个月的变化率,升序,double
+Rating,分析师综合评级,升序,double
+TargetReturn,一致预测目标价 / 收盘价 - 1,降序,double

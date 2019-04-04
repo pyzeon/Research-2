@@ -1,0 +1,21 @@
+因子名称,因子描述,排序方向,数据类型
+Gr_5Y_Sale,"过去5年年报营业收入的历史增长率, 以回归方式计算",降序,double
+Gr_5Y_Earning,"过去5年年报净利润的历史增长率, 以回归方式计算",降序,double
+Gr_5Y_OCF,"过去5年年报经营活动产生的现金流量净额的历史增长率, 以回归方式计算",降序,double
+Gr_3Y_Sale,"过去3年年报营业收入的历史增长率, 以回归方式计算",降序,double
+Gr_3Y_Earning,"过去3年年报净利润的历史增长率, 以回归方式计算",降序,double
+Gr_3Y_OCF,"过去3年年报经营活动产生的现金流量净额的历史增长率, 以回归方式计算",降序,double
+Gr_1Y_Sale,营业收入_最新年报的同比增长率,降序,double
+Gr_1Y_Earning,净利润_最新年报的同比增长率,降序,double
+Gr_1Y_OCF,经营活动产生的现金流量净额_最新年报的同比增长率,降序,double
+Gr_Q_Sale,单季度营业收入同比增长率,降序,double
+Gr_Q_Earning,单季度净利润同比增长率,降序,double
+Gr_Q_OCF,单季度经营活动产生的现金流量净额同比增长率,降序,double
+Gr_Q_OpEarning,单季度营业利润同比增长率,降序,double
+Ac_Q_Sale,单季度营业利润同比增长率 - 上一季度单季度营业利润同比增长率,降序,double
+Ac_Q_Earning,单季度净利润同比增长率 - 上一季度单季度净利润同比增长率,降序,double
+Ac_Q_OpEarning,单季度营业利润同比增长率 - 上一季度单季度营业利润同比增长率,降序,double
+Ac_Q_OCF,单季度经营活动产生的现金流量净额同比增长率 - 上一季度单季度经营活动产生的现金流量净额同比增长率,降序,double
+Gr_FY0_Earning,(净利润_FY0 - 净利润_最新年报) / ABS(净利润_最新年报),降序,double
+Gr_FY1_Earning,SQRT((净利润_FY1 - 净利润_最新年报) / ABS(净利润_最新年报) + 1) - 1,降序,double
+Capex2Sales,构建固定资产、无形资产和其他长期资产支付的现金 / 营业收入_TTM,降序,double

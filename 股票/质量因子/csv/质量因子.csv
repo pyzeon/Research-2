@@ -1,0 +1,28 @@
+因子名称,因子描述,排序方向,数据类型
+GrossMargin,(营业收入_TTM - 营业成本_TTM) / 营业收入_TTM,降序,double
+Gross2SalesExpenses,(营业收入_TTM - 营业成本_TTM) / 销售费用_TTM,降序,double
+OperatingMargin,营业利润_TTM / 营业收入_TTM,降序,double
+NetMargin,净利润_TTM / 营业收入_TTM,降序,double
+OCF2OP,经营活动产生的现金流量净额_TTM / 营业利润_TTM,降序,double
+ThreeCosts2Sales_TTM,(销售费用_TTM + 管理费用_TTM + 财务费用_TTM) / 营业收入_TTM,升序,double
+ROEStability_5Y,过去5年的 ROE_TTM 的标准差 / 过去5年的 ROE_TTM 的均值,升序,double
+ROE_Chg,ROE_TTM / 去年同期的 ROE_TTM - 1,降序,double
+ROAStability_5Y,过去5年的 ROA_TTM 的标准差 / 过去5年的 ROA_TTM 的均值,升序,double
+ROA_Chg,ROA_TTM / 去年同期的 ROA_TTM - 1,降序,double
+GrossMarginStability_5Y,过去5年的 GrossMargin 的标准差 / 过去5年的 GrossMargin 的均值,升序,double
+GrossMargin_Chg,GrossMargin / 去年同期的 GrossMargin - 1,降序,double
+EPS_FY0_CV,一致预期 EPS_FY0 的标准差 / ABS(一致预期 EPS_FY0),升序,double
+CurrentRatio,流动资产合计_最新财报 / 流动负债合计_最新财报,降序,double
+QuickRatio,(流动资产合计_最新财报 - 存货_最新财报) / 流动负债合计_最新财报,降序,double
+InventoryTurnover,2 * 销售收入_TTM / (存货_最新财报 + 存货_去年同期),降序,double
+ReceivablesTurnover,2 * 销售收入_TTM / (应收账款_最新财报 + 应收账款_去年同期),降序,double
+LTDebt2Equity,非流动负债合计_最新财报 / 股东权益合计_最新财报,升序,double
+LTDebt2Equity_Chg,(LTDebt2Equity - LTDebt2Equity_去年同期) / ABS(LTDebt2Equity_去年同期),升序,double
+OCF2CurDebt,2 * 经营活动产生的现金流量净额_TTM / (流动负债合计_最新财报 + 流动负债合计_去年同期),降序,double
+CurAsset_Gr,(流动资产合计_最新财报 - 流动资产合计_去年同期) / ABS(流动资产合计_去年同期),降序,double
+FixAsset_Gr,(固定资产_最新财报 - 固定资产_去年同期) / ABS(固定资产_去年同期),降序,double
+CurDebt_Gr,(流动负债合计_最新财报 - 流动负债合计_去年同期) / ABS(流动负债合计_去年同期),升序,double
+Debt_Gr,(负债合计_最新财报 - 负债合计_去年同期) / ABS(负债合计_去年同期),升序,double
+Equity_Gr,(股东权益合计_最新财报 - 股东权益合计_去年同期) / ABS(股东权益合计_去年同期),降序,double
+Asset_Gr,(资产总计_最新财报 - 资产总计_去年同期) / ABS(资产总计_去年同期),降序,double
+Piotroski_F_Score,(扣除非经常性损益后净利润_TTM > 0) + (经营活动产生的现金流量净额_TTM > 0) + (扣除非经常性损益后净利润_TTM > 扣除非经常性损益后净利润_TTM_去年同期) + (经营活动产生的现金流量净额_TTM > 扣除非经常性损益后净利润_TTM) + (LTDebt2Equity <= LTDebt2Equity_去年同期) + (CurrentRatio > CurrentRatio_去年同期) + (期末总股本 <= 期末总股本_去年同期) + (GrossMargin > GrossMargin_去年同期) + (Sale2Asset > Sale2Asset_去年同期),降序,double

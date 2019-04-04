@@ -1,0 +1,21 @@
+因子名称,因子描述,排序方向,数据类型
+RealizedVolatility_240D,过去240天日收益率数据计算的标准差,升序,double
+RealizedVolatility_60D,过去60天日收益率数据计算的标准差,升序,double
+RealizedSkewness_240D,过去240天日收益率数据计算的偏度,升序,double
+RealizedKurtosis_240D,过去240天日收益率数据计算的丰度,降序,double
+AmountAvg_20D,过去20天日均成交额,升序,double
+AmountAvg_240D,过去240天日均成交额,升序,double
+TurnoverAvg_20D,过去20天日均换手率,升序,double
+TurnoverAvg_240D,过去240天日均换手率,升序,double
+ILLIQ_20D,过去20天 AVERAGE(日涨跌幅绝对值 / 日成交金额),降序,double
+ILLIQ_240D,过去240天 AVERAGE(日涨跌幅绝对值 / 日成交金额),降序,double
+VolAvg_20D_240D,过去20天日均成交量 / 过去240天日均成交量,升序,double
+VolCV_20D,过去20天日成交量的标准差 / 过去20天日均成交量,升序,double
+SmallTradeFlow_1D,散户量差(仅主动) / 成交量,升序,double
+Ln_MktCap,总市值的自然对数,升序,double
+Ln_FloatCap,流通市值的自然对数,升序,double
+Ln_Asset,资产总计_最新财报的自然对数,升序,double
+Ln_Sales,营业收入_TTM的自然对数,升序,double
+Ln_Price,收盘价的自然对数,升序,double
+Num_Emp,员工人数,升序,double
+Num_EPS_FY0,EPS 预测值的数量,升序,double

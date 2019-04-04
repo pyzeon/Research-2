@@ -1,0 +1,11 @@
+﻿因子名称,因子描述,排序方向,数据类型
+Size,1.0 × LNCAP,升序,double
+Beta,1.0 × BETA,升序,double
+Momentum,1.0 × RSTR,升序,double
+ResidualVolatility,0.74 × DASTD + 0.16 × CMRA + 0.10 × HSIGMA,升序,double
+NonlinearSize,Size 的立方关于 Size 因子做正交化（以总市值作为权重）,升序,double
+BookToPrice,1.0 × BTOP,降序,double
+Liquidity,0.35 × STOM + 0.35 × STOQ + 0.30 × STOA,升序,double
+EarningsYield,0.68 × EPFWD + 0.21 × CETOP + 0.11 × ETOP,降序,double
+Growth,0.18 × EGRLF + 0.11 × EGRSF + 0.24 × EGRO + 0.47 × SGRO,降序,double
+Leverage,0.38 × MLEV + 0.35 × DTOA + 0.27 × BLEV,升序,double

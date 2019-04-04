@@ -1,0 +1,17 @@
+因子名称,因子描述,排序方向,数据类型
+DP_LTM,过去一年现金分红 / 总市值,降序,double
+EP_LYR,净利润(不含少数股东损益)_最新年报 / 总市值,降序,double
+EP_TTM,净利润(不含少数股东损益)_TTM / 总市值,降序,double
+EP_SQ,净利润_最近预测年度 / 总市值,降序,double
+EP_FY0,一致预期净利润_FY0 / 总市值,降序,double
+EP_FY1,一致预期净利润_FY1 / 总市值,降序,double
+EP_Fwd12M,每股收益_未来12个月预测值 / 收盘价,降序,double
+EP_TTM_Deducted,扣除非经常性损益后净利润_TTM / 总市值,降序,double
+OCFP_TTM,经营活动产生的现金流量净额_TTM / 总市值,降序,double
+FCFP_TTM,企业自由现金流量(FCFF)_TTM / 总市值,降序,double
+SP_TTM,营业收入_TTM / 总市值,降序,double
+BP_LR,股东权益合计(不含少数股东权益)_最新财报 / 总市值,降序,double
+BP_LR_Tangible,(股东权益合计(不含少数股东权益)_最新财报 - 无形资产_最新财报 - 商誉_最新财报) / 总市值,降序,double
+Sales2EV,营业收入_TTM / (总市值 + 带息债务_最新财报 - 货币资金_最新财报),降序,double
+EBITDA2EV,息税折旧摊销前利润_TTM / (总市值 + 带息债务_最新财报 - 货币资金_最新财报),降序,double
+EBIT2EV,息税前利润_TTM / (总市值 + 带息债务_最新财报 - 货币资金_最新财报),降序,double
