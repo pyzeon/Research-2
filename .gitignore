@@ -104,5 +104,6 @@ venv.bak/
 .mypy_cache/
 
 参考文献/
+Jupyter/
 startJupyterLab.bat
 startJupyterNotebook.bat
