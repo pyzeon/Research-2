@@ -31,23 +31,38 @@ class FinancialPlan(HasTraits):
 
 class PensionPlan(FinancialPlan):
     """养老规划"""
-    CurrentAge = Range(low=1, high=200, value=30, label="当前年龄")
-    RetirementAge = Range(low=1, high=200, value=60, label="退休年龄")
-    FinalAge = Range(low=1, high=200, value=80, label="终止年龄")
-    Cost = Float(35000, label="养老费用")
-    CostGrowthRate = Float(0.0201, label="费用增长率")
-    PV = Float(100000, label="初始投入")
-    PeriodInvest = Float(20000, label="每期投入")
-    When = Enum("end", "begin", label="定投时点")
-    PreRetirementRate = Instance(RateSimulator, label="退休前收益率")
-    PostRetirementRate = Instance(RateSimulator, label="退休后收益率")
+    CurrentAge = Range(low=1, high=200, value=30, visible_to_user=True, label="当前年龄")
+    RetirementAge = Range(low=1, high=200, value=60, visible_to_user=True, label="退休年龄")
+    FinalAge = Range(low=1, high=200, value=80, visible_to_user=True, label="终止年龄")
+    Cost = Float(35000, visible_to_user=True, label="养老费用")
+    CostGrowthRate = Float(0.0201, visible_to_user=True, label="费用增长率")
+    PV = Float(100000, visible_to_user=True, label="初始投入")
+    PeriodInvest = Float(20000, visible_to_user=True, label="每期投入")
+    When = Enum("end", "begin", visible_to_user=True, label="定投时点")
+    PreRetirementRate = Instance(RateSimulator, visible_to_user=True, label="退休前收益率")
+    PostRetirementRate = Instance(RateSimulator, visible_to_user=True, label="退休后收益率")
     def __init__(self, logger=None, **kwargs):
+        self.on_trait_change(self._on_instance_changed, "PreRetirementRate")
+        self.on_trait_change(self._on_instance_changed, "PostRetirementRate")
         super().__init__(logger=logger, **kwargs)
         self._Rate = None# 收益率序列
         self._Pmt = None# 现金流序列
         self._FV = None# 终值序列
         for iTraitName in self.visible_traits():
-            self.on_trait_change(self._arg_changed, iTraitName)
+            iTrait = self.trait(iTraitName)
+            if iTrait.visible_to_user:
+                self.on_trait_change(self._arg_changed, iTraitName)
+    def _on_instance_changed(self, obj, name, old, new):
+        if old is not None:
+            for iTraitName in old.visible_traits():
+                iTrait = old.trait(iTraitName)
+                if iTrait.visible_to_user:
+                    old.on_trait_change(self._arg_changed, iTraitName, remove=True)
+        if new is not None:
+            for iTraitName in new.visible_traits():
+                iTrait = new.trait(iTraitName)
+                if iTrait.visible_to_user:
+                    new.on_trait_change(self._arg_changed, iTraitName)
     def _arg_changed(self):
         self._Rate = None
         self._Pmt = None

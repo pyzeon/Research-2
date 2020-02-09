@@ -20,25 +20,25 @@ class RateSimulator(HasTraits):
 
 class ConstantRateSimulator(RateSimulator):
     """固定益率模拟器"""
-    ConstRate = Float(0.05, label="固定收益率")
-    NPeriod = Int(10, label="模拟期数")
-    NSample = Int(1, label="模拟样本数")
+    ConstRate = Float(0.05, visible_to_user=True, label="固定收益率")
+    NPeriod = Int(10, visible_to_user=True, label="模拟期数")
+    NSample = Int(1, visible_to_user=True, label="模拟样本数")
     def simulate(self):
         return np.full(shape=(self.NPeriod, self.NSample), fill_value=self.ConstRate)
 
 class NormalRateSimulator(RateSimulator):
     """正态分布收益率模拟器"""
-    RateMean = Float(0.05, label="平均收益率")
-    RateSigma = Float(0.3, label="平均波动率")
-    HistoryRate = Either(None, Instance(np.ndarray), label="历史收益率")
-    NoP = Range(low=1, high=9999, value=252, label="输出期数")
-    DropIllegal = Bool(True, label="舍弃非法值")
-    NPeriod = Int(10, label="模拟期数")
-    NSample = Int(100, label="模拟样本数")
-    Seed = Either(None, Int(0), label="随机数种子")
+    RateMean = Float(0.05, visible_to_user=True, label="平均收益率")
+    RateSigma = Float(0.3, visible_to_user=True, label="平均波动率")
+    HistoryRate = Instance(np.ndarray, visible_to_user=True, label="历史收益率")
+    NoP = Range(low=1, high=9999, value=252, visible_to_user=True, label="输出期数")
+    DropIllegal = Bool(True, visible_to_user=True, label="舍弃非法值")
+    NPeriod = Int(10, visible_to_user=True, label="模拟期数")
+    NSample = Int(100, visible_to_user=True, label="模拟样本数")
+    Seed = Either(None, Int(0), visible_to_user=True, label="随机数种子")
     def simulate(self):
         if self.HistoryRate is not None:
-            RateMean = np.nanmean(self.HistoryRate) * self.NoP# 收益率的历史均值
+            RateMean = np.nanprod(1 + self.HistoryRate) ** (self.NoP / self.HistoryRate.shape[0]) - 1# 收益率的历史均值
             RateSigma = np.nanstd(self.HistoryRate, ddof=1) * self.NoP**0.5# 收益率的历史波动率
         else:
             RateMean = self.RateMean
@@ -59,16 +59,16 @@ class NormalRateSimulator(RateSimulator):
 
 class LognormalRateSimulator(RateSimulator):
     """对数正态分布收益率模拟器"""
-    RateMean = Float(0.05, label="平均收益率")
-    RateSigma = Float(0.3, label="平均波动率")
-    HistoryRate = Either(None, Instance(np.ndarray), label="历史收益率")
-    NoP = Range(low=1, high=9999, value=252, label="输出期数")
-    NPeriod = Int(10, label="模拟期数")
-    NSample = Int(100, label="模拟样本数")
-    Seed = Either(None, Int(0), label="随机数种子")
+    RateMean = Float(0.05, visible_to_user=True, label="平均收益率")
+    RateSigma = Float(0.3, visible_to_user=True, label="平均波动率")
+    HistoryRate = Instance(np.ndarray, visible_to_user=True, label="历史收益率")
+    NoP = Range(low=1, high=9999, value=252, visible_to_user=True, label="输出期数")
+    NPeriod = Int(10, visible_to_user=True, label="模拟期数")
+    NSample = Int(100, visible_to_user=True, label="模拟样本数")
+    Seed = Either(None, Int(0), visible_to_user=True, label="随机数种子")
     def simulate(self):
         if self.HistoryRate is not None:
-            RateMean = np.nanmean(self.HistoryRate) * self.NoP# 收益率的历史均值
+            RateMean = np.nanprod(1 + self.HistoryRate) ** (self.NoP / self.HistoryRate.shape[0]) - 1# 收益率的历史均值
             RateSigma = np.nanstd(self.HistoryRate, ddof=1) * self.NoP**0.5# 收益率的历史波动率
         else:
             RateMean = self.RateMean
@@ -81,7 +81,7 @@ class LognormalRateSimulator(RateSimulator):
         return Rate
 
 class ResampleRateSimulator(RateSimulator):
-    HistoryRate = Instance(np.ndarray, label="历史收益率")
-    NoP = Range(low=1, high=None, value=252, label="输出期数")
+    HistoryRate = Instance(np.ndarray, visible_to_user=True, label="历史收益率")
+    NoP = Range(low=1, high=None, value=252, visible_to_user=True, label="输出期数")
     def simulate(self):
         pass
